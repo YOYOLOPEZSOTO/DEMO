@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edificio 3D · AR</title>
+  <script type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js">
+  </script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      --poster-color: transparent;
+    }
+    /* Hotspots */
+    .Hotspot {
+      background: white;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      box-sizing: border-box;
+      cursor: pointer;
+      height: 22px;
+      width: 22px;
+      padding: 0;
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+    .Hotspot:not([data-visible]) {
+      opacity: 0.4;
+    }
+    .Hotspot:focus { outline: none; }
+    .HotspotAnnotation {
+      background: rgba(0,0,0,0.85);
+      color: white;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      left: calc(100% + 8px);
+      padding: 6px 10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+    }
+    /* Botón AR */
+    #ar-button {
+      background: white;
+      border: none;
+      border-radius: 6px;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    #ar-button:active { background: #f0f0f0; }
+    #ar-button:focus { outline: none; }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="https://yoyolopezsoto.github.io/DEMO/edificio%20demo%203.glb"
+    alt="Edificio 3D"
+    poster="https://yoyolopezsoto.github.io/DEMO/poster.webp"
+    environment-image="https://yoyolopezsoto.github.io/DEMO/spruit_sunrise_1k_HDR.hdr"
+    camera-controls
+    tone-mapping="neutral"
+    shadow-intensity="1.09"
+    shadow-softness="0.33"
+    camera-orbit="-22.5deg 93.16deg 926m"
+    field-of-view="30deg"
+    exposure="1.63"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-scale="auto"
+    ar-placement="floor">
+    <button class="Hotspot" slot="hotspot-2"
+        data-position="125.3872134743275m 20.66705693767059m 205.0245168209076m"
+        data-normal="0m -2.220446049250313e-16m 1m"
+        data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">frente 1</div>
+    </button>
+    <button class="Hotspot" slot="hotspot-3"
+        data-position="-41.29645323753351m 20.89258984616433m -16.399190073276483m"
+        data-normal="-1m 0m 0m"
+        data-visibility-attribute="visible">
+      <div class="HotspotAnnotation">frente 2</div>
+    </button>
+    <button slot="ar-button" id="ar-button">
+      Ver en tu espacio
+    </button>
+  </model-viewer>
+</body>
+</html>
