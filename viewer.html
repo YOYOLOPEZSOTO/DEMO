@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edificio 3D · AR</title>
+
+  <script type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js">
+  </script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+    }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      --poster-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="https://yoyolopezsoto.github.io/DEMO/edificio%20demo%202.glb"
+    alt="Edificio 3D"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-scale="auto"
+    ar-placement="floor">
+  </model-viewer>
+</body>
+</html>
